@@ -1,8 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
+import CountryList from '../components/CountryList';
+import CountryDetail from '../components/CountryDetail';
+import CountrySelector from '../components/CountrySelector';
 
-const countryContainer = () => {
-    const [countries setCountries] = useState([]);
+
+const CountryContainer = () => {
+    const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState(null);
 
 
@@ -18,16 +22,16 @@ const countryContainer = () => {
   
       const onCountrySelected = function(country){
           console.log(country);
-          setSelectedMunro(country);
+          setSelectedCountry(country);
       }
   
       return (
           <div className="main-container">
-              <MunroSelector munros={munros} onMunroSelected={onMunroSelected}/>
-              {selectedMunro ?<MunroDetail munro={selectedMunro}/> : null}
+              <CountrySelector countries={countries} onCountrySelected={onCountrySelected}/>
+              {selectedCountry ?<CountryDetail country={selectedCountry}/> : null}
           </div>
       )
   }
   
-  export default MunroContainer;    
+  export default CountryContainer;    
 
