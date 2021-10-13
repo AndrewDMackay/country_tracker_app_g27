@@ -31,7 +31,7 @@ const CountryContainer = () => {
       const worldPopulation = countries.population.reduce((runningTotal, population) => {
             return runningTotal + population
       }, 0);
-      return worldPopulation;
+      return worldPopulation
       }
 
   
