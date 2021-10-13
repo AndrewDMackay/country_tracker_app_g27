@@ -19,7 +19,7 @@ const CountryDetail = ({country}) => {
             return borders
     })
     
-    if(borders != []){
+    if(borders !== []){
         return "No Borders"
     } else {
         return borders.join(", ");
@@ -34,7 +34,7 @@ const CountryDetail = ({country}) => {
     }
 
     return (
-        <div>
+        <div class="country-detail-container">
             <h1>Country: {country.name}</h1>
             <p><strong>Code: </strong>{country.alpha3Code}</p>
             <p><strong>Region: </strong>{country.region}</p>
