@@ -21,7 +21,6 @@ const CountryContainer = () => {
       }
   
       const onCountrySelected = function(country){
-          console.log(country);
           setSelectedCountry(country);
       }
   

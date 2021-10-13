@@ -1,5 +1,19 @@
 
-.main-container {
-    display: flex;
-    justify-content: space-between;
-  }
+.flag-container {
+  margin: 0vw;
+  padding: 0vw;
+  width: 15vw;
+  height: 15vw;
+  display: block;
+  border: solid 0.1vw black;
+  align-content: center;
+}
+
+  img {
+    margin: 0vw;
+    padding: 0vw;
+    width: 15vw;
+    height: 15vw;
+    display: block;
+}
+
