@@ -27,19 +27,24 @@ const CountryContainer = () => {
       }
 
 
-      const getWorldPopulation = function(countries){
-      const worldPopulation = countries.population.reduce((runningTotal, population) => {
-            return runningTotal + population
+      const worldPopulation = countries.reduce((runningTotal, country) => {
+            return runningTotal + country.population
       }, 0);
-      return worldPopulation
-      }
+      
+
+      const borderCountries = selectedCountry?.borders?.map((borderCountry) => {
+            return countries.find((country) => {
+            return country.alpha3Code === borderCountry
+         })
+      })
 
   
       return (
           <div className="main-container">
+              <p><strong>Current World Population: </strong>{worldPopulation}</p>
               <CountrySelector countries={countries} onCountrySelected={onCountrySelected}/>
               {selectedCountry ?<CountryDetail country={selectedCountry}/> : null}
-              {/* <p><strong>Current World Population: </strong>{getWorldPopulation(countries)}</p> */}
+              {selectedCountry && <CountryDetail country={selectedCountry} borderCountries={borderCountries}/>}
           </div>
       )
   }
