@@ -3,7 +3,7 @@ import React from 'react';
 import './ListItem.css';
 
 
-const CountryDetail = ({country}) => {
+const CountryDetail = ({country, borderCountries}) => {
 
     const getLanguages = (country) => {
     const languages = country.languages.map((language) => {
@@ -33,6 +33,17 @@ const CountryDetail = ({country}) => {
     return currencies.join(", ");
     }
 
+
+    const borderCountryNames = borderCountries?.map((country) => {
+        return country.name
+    })
+
+    const borderCountriesPopulation = borderCountries?.reduce((total, country) => {
+        return total + country.population
+    }, 0)
+    
+
+
     return (
         <div class="country-detail-container">
             <h1>Country: {country.name}</h1>
@@ -43,8 +54,9 @@ const CountryDetail = ({country}) => {
             <p><strong>Languages: </strong>{getLanguages(country)}</p>
             <p><strong>Population: </strong>{country.population}</p>
             <p><strong>Latitude, and Longitude: </strong>{country.latlng}</p>
-            <p><strong>Borders: </strong>{getBorders(country)}</p>
             <p><strong>Currencies: </strong>{getCurrencies(country)}</p>
+            <p><strong>Border Countries:</strong>{getBorders(country)}</p>
+            <p><strong>Surrounding Population:</strong>{borderCountriesPopulation}</p>
             <p><strong>Flag: </strong></p>
                 <div class="flag-container">
                     <img src={country.flag}></img>

@@ -33,10 +33,10 @@ const CountryContainer = () => {
       
 
       const borderCountries = selectedCountry?.borders?.map((borderCountry) => {
-            return countries.find((country) => {
+        return countries.find((country) => {
             return country.alpha3Code === borderCountry
-         })
-      })
+            })
+        })
 
   
       return (
